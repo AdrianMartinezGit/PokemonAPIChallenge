@@ -2,7 +2,7 @@
 Adrian Martinez<br>
 1 / 29 / 2024 - 3:28 PM<br>
 Pokémon API Challenge<br>
-I used my knowledge of HTML, CSS, and JS to create my own functioning and responsive Pokédex styled with Tailwind CSS Framework, with the following features:<br>
+I used my knowledge of HTML, CSS, and JS to create my own functioning and responsive Pokédex styled with the Tailwind CSS Framework, with the following features:<br>
 <ul>
     <li>Display 1st - 5th Gen Pokémon</li>
     <li>Search for Pokémon by name and Pokedex Number</li>
@@ -16,8 +16,9 @@ I used my knowledge of HTML, CSS, and JS to create my own functioning and respon
     <li>Display Favorites List</li>
 </ul>
 <br>
-Peer Reviewed by {Name Here}<br>
+Peer Reviewed by {Name Here}:<br>
 ({Comments here})
 
 <br><br>
-Figma Link: https://www.figma.com/file/WV74uhcLUkndP4QDhvLvls/Pokemon-API-Challenge?type=design&node-id=0%3A1&mode=design&t=VMZhmwrsfZ1Vij1H-1
+<b>Figma Link:</b> https://www.figma.com/file/WV74uhcLUkndP4QDhvLvls/Pokemon-API-Challenge?type=design&node-id=0%3A1&mode=design&t=VMZhmwrsfZ1Vij1H-1
+<b>Azure Link:</b> pokemonapichallenge.azurewebsites.net
