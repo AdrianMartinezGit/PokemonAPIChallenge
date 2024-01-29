@@ -18,3 +18,6 @@ I used my knowledge of HTML, CSS, and JS to create my own functioning and respon
 <br>
 Peer Reviewed by {Name Here}<br>
 ({Comments here})
+
+<br><br>
+Figma Link: https://www.figma.com/file/WV74uhcLUkndP4QDhvLvls/Pokemon-API-Challenge?type=design&node-id=0%3A1&mode=design&t=VMZhmwrsfZ1Vij1H-1
