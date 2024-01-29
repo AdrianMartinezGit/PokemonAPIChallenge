@@ -15,3 +15,6 @@ I used my knowledge of HTML, CSS, and JS to create my own functioning and respon
     <li>Show Evolutionary Paths</li>
     <li>Display Favorites List</li>
 </ul>
+<br>
+Peer Reviewed by {Name Here}<br>
+({Comments here})
