@@ -543,3 +543,28 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+
+html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #ffffff;
+  color: #000000;
+  height: 100%;
+}
+
+.sidebar-width-desktop {
+  width: 480px;
+}
+
+.sidebar-width-tablet {
+  width: 480px;
+}
+
+.sidebar-width-mobile {
+  width: 100%;
+}
