@@ -552,19 +552,27 @@ html {
 body {
   padding: 0;
   margin: 0;
-  background-color: #ffffff;
+  background-color: #6d6d6d;
   color: #000000;
   height: 100%;
 }
 
-.sidebar-width-desktop {
+.sidebar-width {
   width: 480px;
 }
 
-.sidebar-width-tablet {
-  width: 480px;
+.search-bar-width {
+  width: 1280px;
 }
 
-.sidebar-width-mobile {
-  width: 100%;
+@media only screen and (max-width: 768px) {
+  .search-bar-width {
+    width: 540px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .search-bar-width {
+    width: 360px;
+  }
 }
