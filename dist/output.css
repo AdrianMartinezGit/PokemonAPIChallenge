@@ -573,6 +573,6 @@ body {
 
 @media only screen and (max-width: 480px) {
   .search-bar-width {
-    width: 360px;
+    width: 100%;
   }
 }

@@ -8,10 +8,10 @@ I used my knowledge of HTML, CSS, and JS to create my own functioning and respon
     <li>Search for Pokémon by name and Pokedex Number</li>
     <li>Ability to get a Random Pokémon</li>
     <li>Display both images of Pokémon and Shiny Form</li>
-    <li>Display Pokémon Name</li>
-    <li>Show 1 location from any game</li>
+    <li>Display Pokémon Name [x]</li>
+    <li>Show 1 location from any game [x]</li>
     <li>Display Element Types</li>
-    <li>List all possible abilities and moves</li>
+    <li>List all possible abilities and moves [x]</li>
     <li>Show Evolutionary Paths</li>
     <li>Display Favorites List</li>
 </ul>
