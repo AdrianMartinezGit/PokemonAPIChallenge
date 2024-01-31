@@ -34,3 +34,7 @@ body {
 .bg-grey-half {
     background-color: rgb(48, 48, 48);
 }
+
+#pokemonImg {
+    cursor: pointer;
+}

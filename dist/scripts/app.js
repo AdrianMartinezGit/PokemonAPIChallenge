@@ -137,3 +137,7 @@ const pad = (num, size) => {
     let s = "000000000" + num;
     return s.substring(s.length - size);
 }
+
+pokemonImg.addEventListener('click', () => {
+    alert('Testing');
+});
