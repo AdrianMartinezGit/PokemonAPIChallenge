@@ -24,8 +24,12 @@ const GetPokemonData = async (pokemon = searchBarInput.value.toLowerCase()) => {
     pokeData = await pokeResponse.json();
     pokeId = pokeData.id;
 
+    console.log(pokeData);
+
     let speciesResponse = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon}`);
     speciesData = await speciesResponse.json();
+
+    console.log(speciesData);
 
     if (speciesData.evolution_chain !== null) {
         let evolveUrl = speciesData.evolution_chain.url;
@@ -139,5 +143,12 @@ const pad = (num, size) => {
 }
 
 pokemonImg.addEventListener('click', () => {
-    alert('Testing');
+    ShinyPokemon = !ShinyPokemon;
+
+    if (ShinyPokemon == true) {
+        pokemonImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/${pokeData.id}.png`;
+        
+    } else {
+        pokemonImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeData.id}.png`;
+    }
 });

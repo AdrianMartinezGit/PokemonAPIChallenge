@@ -580,4 +580,13 @@ body {
 
 #pokemonImg {
   cursor: pointer;
+  transition: 0.25s width;
+}
+
+.pokeImgSize {
+  width: 24rem;
+}
+
+.pokeImgSize:hover {
+  width: 26rem;
 }
