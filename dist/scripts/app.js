@@ -14,8 +14,10 @@ let pokemonPlace = document.getElementById('pokemonPlace');
 let pokemonAbility = document.getElementById('pokemonAbility');
 let pokemonMoves = document.getElementById('pokemonMoves');
 
+let firstDiv = document.getElementById('firstDiv');
 
-async function GetPokemonData(pokemon = searchBarInput.value.toLowerCase()) {
+
+const GetPokemonData = async (pokemon = searchBarInput.value.toLowerCase()) => {
     searchBarInput.value = '';
 
     let pokeResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
@@ -33,7 +35,7 @@ async function GetPokemonData(pokemon = searchBarInput.value.toLowerCase()) {
         evolveData = null;
     }
 
-    let id = pokeData.id;
+    let id = pokeId;
     let encounterResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/encounters`);
     encounterData = await encounterResponse.json();
 
@@ -42,7 +44,7 @@ async function GetPokemonData(pokemon = searchBarInput.value.toLowerCase()) {
     }
 }
 
-function setFavIcon() {
+const SetFavoriteIcon = () => {
     let favorites = getLocalStorage();
 
     /*
@@ -58,7 +60,7 @@ function setFavIcon() {
     */
 }
 
-function GetEnglishFlavorText() {
+const GetFlavorText = () => {
     let flavorArray = speciesData.flavor_text_entries;
     let flavor = 'Not much is known about this mysterious Pokemon. Play the latest game to find out more!';
     
@@ -71,14 +73,13 @@ function GetEnglishFlavorText() {
     return flavor;
 }
 
-async function PopulateData() 
-{
+const PopulateData = async () => {
     ShinyPokemon = false;
 
-    pokemonName.textContent = capitalizeFirstLetter(pokeData.name) + " - #" + pad(pokeData.id, 3);
+    pokemonName.textContent = capitalizeFirstLetter(pokeData.name) + " - #" + pad(pokeId, 3);
     pokemonImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeData.id}.png`;
 
-    pokemonFlavorText.textContent = '"' + GetEnglishFlavorText() + '"';
+    pokemonFlavorText.textContent = '"' + GetFlavorText() + '"';
 
     let location = encounterData[0].location_area.name;
     pokemonPlace.textContent = "Location: " + capitalSplitCase(location).replace(' Area', '');
@@ -117,29 +118,12 @@ searchBarInput.addEventListener('keypress', async function(event) {
     }
 })
 
-async function PageLoad() {
+const PageLoad = async () => {
     await GetPokemonData(1);
+    await PopulateData();
 }
 
 PageLoad();
-
-
-/*
-let searchBarInput = document.getElementById('default-search');
-
-let pokemonName = document.getElementById('pokemonName');
-let pokemonImg = document.getElementById('pokemonImg');
-let pokemonFlavorText = document.getElementById('pokemonFlavorText');
-
-const PokemonAPIFetch = async (pokiname) => {
-    const main_promise = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokiname}`);
-    const main_data = await main_promise.json();
-
-    const species_promise = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokedata.id}/`);
-
-    return data;
-}
-*/
 
 const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -180,14 +164,7 @@ searchBarInput.addEventListener('keydown', async (event) => {
         console.log(data);
         pokemonFlavorText.textContent = await `"${data.flavor_text_entries[6].flavor_text}"`;
 
-        //pokemonFlavorText.textContent = '"FLAVOR TEXT"';
-        //digimonImg.src = digimon[0].img;
-        //digimonName.textContent = digimon[0].name;
-        //digimonStatus.textContent = digimon[0].level;
-
         event.target.value = "";
     }
 })
 */
-
-//actualname = await PokemonAPIFetch(25);
