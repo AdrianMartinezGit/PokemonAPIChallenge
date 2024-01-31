@@ -29,12 +29,20 @@
       </div>
     </form>
 
-    <h1 class="text-center text-6xl font-semibold text-white pt-5" style="text-shadow: 4px 4px 6px black;"
-      id="pokemonName">POKEMON NAME</h1>
+    <h1 class="text-center text-6xl font-semibold text-white pt-5" style="text-shadow: 4px 4px 6px black;" id="pokemonName">POKEMON NAME</h1>
+
     <hr style="border: 3px solid black;" class="mt-5">
   </div>
 
   <img src="./assets/IMG_Placeholder.png" class="pokeImgSize h-auto mx-auto pt-5 pb-5" id="pokemonImg">
+    <!--<div class="pt-5 grid grid-cols-3 gap-4 content-center">-->
+      <div class="flex justify-center">
+        <button type="button" style="width:100px;" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" id="randomPokeButton">Random</button>
+        <button type="button" style="width:100px;" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="button" data-drawer-target="drawer-backdrop" data-drawer-show="drawer-backdrop" data-drawer-backdrop="true"
+        aria-controls="drawer-backdrop">Favorites</button>
+        <input type="image" id="favoritePokeButton" src="./assets/IMG_AddButton.png" style="height: 40px; width: auto;">
+      </div>
+    <!--</div>-->
   <!--<img src="./assets/IMG_Placeholder.png" class="w-96 h-auto mx-auto pt-5 pb-5" id="pokemonImg">-->
 
   <div class="bg-white">
@@ -61,15 +69,6 @@
     <div class="evolveContainer">
 
     </div>
-  </div>
-  <!-- drawer init and toggle -->
-  <div class="text-center pt-5 px-36">
-    <button
-      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-      type="button" data-drawer-target="drawer-backdrop" data-drawer-show="drawer-backdrop" data-drawer-backdrop="true"
-      aria-controls="drawer-backdrop">
-      Show drawer with backdrop
-    </button>
   </div>
 
   <!-- drawer component -->

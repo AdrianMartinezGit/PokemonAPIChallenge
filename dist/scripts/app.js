@@ -1,9 +1,11 @@
-import { saveToLocalStorage, getlocalStorage, removeFromLocalStorage } from "./localstorage.js";
+//import { saveToLocalStorage, getlocalStorage, removeFromLocalStorage, getFavoriteData, saveFavoriteData } from "./localstorage.js";
 
 let pokeData, speciesData, pokeId, encounterData, evolveData, allEvolvePaths;
 let ShinyPokemon = false;
 
 let searchBarInput = document.getElementById('default-search');
+let randomPokeButton = document.getElementById('randomPokeButton');
+let favoritePokeButton = document.getElementById('favoritePokeButton');
 
 let pokemonName = document.getElementById('pokemonName');
 let pokemonImg = document.getElementById('pokemonImg');
@@ -20,13 +22,13 @@ let firstDiv = document.getElementById('firstDiv');
 const GetPokemonData = async (pokemon = searchBarInput.value.toLowerCase()) => {
     searchBarInput.value = '';
 
-    let pokeResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+    const pokeResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
     pokeData = await pokeResponse.json();
     pokeId = pokeData.id;
 
     console.log(pokeData);
 
-    let speciesResponse = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon}`);
+    const speciesResponse = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemon}`);
     speciesData = await speciesResponse.json();
 
     console.log(speciesData);
@@ -49,17 +51,13 @@ const GetPokemonData = async (pokemon = searchBarInput.value.toLowerCase()) => {
 }
 
 const SetFavoriteIcon = () => {
-    let favorites = getLocalStorage();
-
     /*
+    let favorites = getlocalStorage();
+
     if (favorites.includes(pokeData)) {
-        heartImg.classList.add('ph-heart-fill');
-        heartImg.classList.add('text-red-600');
-        heartImg.classList.remove('ph-heart');
+        favoritePokeButton.src = `./assets/IMG_SubButton.png`
     } else {
-        heartImg.classList.remove('ph-heart-fill');
-        heartImg.classList.remove('text-red-600');
-        heartImg.classList.add('ph-heart');
+        favoritePokeButton.src = `./assets/IMG_AddButton.png`
     }
     */
 }
@@ -80,7 +78,7 @@ const GetFlavorText = () => {
 const PopulateData = async () => {
     ShinyPokemon = false;
 
-    pokemonName.textContent = capitalizeFirstLetter(pokeData.name) + " - #" + pad(pokeId, 3);
+    pokemonName.textContent = capitalSplitCase(pokeData.name) + " - #" + pad(pokeId, 3);
     pokemonImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeData.id}.png`;
 
     pokemonFlavorText.textContent = '"' + GetFlavorText() + '"';
@@ -99,13 +97,11 @@ const PopulateData = async () => {
     let types = pokData.types.map(data => CapCase(data.type.name));
     PopulateTypeIcons(types);
 
-    let pName = document.createElement('p');
-    pName.textContent = CapCase(pokData.name);
-
-    setFavIcon();
     ParseEvoData();
     PopulateEvoData();
     */
+
+    SetFavoriteIcon();
 }
 
 searchBarInput.addEventListener('keypress', async function(event) {
@@ -151,4 +147,29 @@ pokemonImg.addEventListener('click', () => {
     } else {
         pokemonImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeData.id}.png`;
     }
+});
+
+randomPokeButton.addEventListener('click', async () => {
+    if (pokemonImg.src !== `./assets/ANIM_Loading.gif`) {
+        let random = Math.floor(Math.random() * 1000) + 1 
+    
+        pokemonImg.src = `./assets/ANIM_Loading.gif`;
+    
+        await GetPokemonData(random);
+        await PopulateData();
+    }
+});
+
+favoritePokeButton.addEventListener('click', () => {
+    /*
+    let favorites = getlocalStorage();
+    let favoriteData = getFavoriteData();
+
+    if (favorites.includes(pokeId)) {
+        removeFromLocalStorage(pokeId);
+    } else {
+        saveToLocalStorage(pokeId);
+        saveFavoriteData(pokeId, capitalSplitCase(pokeData.name));
+    }
+    */
 });

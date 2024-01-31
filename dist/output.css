@@ -572,6 +572,10 @@ body {
   .search-bar-width {
     width: 100%;
   }
+
+  .sidebar-width {
+    width: 100%;
+  }
 }
 
 .bg-grey-half {
