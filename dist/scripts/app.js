@@ -139,32 +139,3 @@ const pad = (num, size) => {
     var s = "000000000" + num;
     return s.substring(s.length - size);
 }
-
-/*
-searchBarInput.addEventListener('keydown', async (event) => {
-    if (event.key === "e"){
-        let lowercase = event.target.value.toLowerCase();
-        
-        pokemonImg.src = `./assets/ANIM_Loading.gif`;
-        
-        let pokedata = await PokemonAPIFetch(lowercase);
-
-        if (pokedata.id > 0 && pokedata.id <= 649) {
-            console.log("Within Bounds");
-        } else {
-            console.log("Out of Bounds")
-        }
-
-        
-        pokemonName.textContent = capitalizeFirstLetter(pokedata.name) + " - #" + pad(pokedata.id, 3);
-        pokemonImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokedata.id}.png`;
-        
-        let promise = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokedata.id}/`);
-        let data = await promise.json();
-        console.log(data);
-        pokemonFlavorText.textContent = await `"${data.flavor_text_entries[6].flavor_text}"`;
-
-        event.target.value = "";
-    }
-})
-*/
