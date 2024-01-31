@@ -82,13 +82,13 @@ const PopulateData = async () => {
     pokemonFlavorText.textContent = '"' + GetFlavorText() + '"';
 
     let location = encounterData[0].location_area.name;
-    pokemonPlace.textContent = "Location: " + capitalSplitCase(location).replace(' Area', '');
+    pokemonPlace.textContent = capitalSplitCase(location).replace(' Area', '');
 
     let abilities = pokeData.abilities.map(data => capitalSplitCase(data.ability.name));
-    pokemonAbility.textContent = "Abilities: " + abilities.join(', ');
+    pokemonAbility.textContent = abilities.join(', ');
 
     let moves = pokeData.moves.map(data => capitalSplitCase(data.move.name));
-    pokemonMoves.textContent = "Moves: " + moves.join(', ');
+    pokemonMoves.textContent = moves.join(', ');
     
     /*
 
@@ -129,13 +129,11 @@ const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-const capitalSplitCase = (word, splitOn = '-', joinWith = ' ') => {
-    return word.split(splitOn)
-                .map(word => word[0].toUpperCase() + word.slice(1))
-                .join(joinWith);
+const capitalSplitCase = (string, splitOn = '-', joinWith = ' ') => {
+    return string.split(splitOn).map(string => string[0].toUpperCase() + string.slice(1)).join(joinWith);
 }
 
 const pad = (num, size) => {
-    var s = "000000000" + num;
+    let s = "000000000" + num;
     return s.substring(s.length - size);
 }
