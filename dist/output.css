@@ -650,8 +650,15 @@ body {
   width: 200px;
   height: 45px;
   background-color: #63bd5b;
-  border-radius: 15px;
+  border-radius: 25px;
   margin-right: 10px;
+}
+
+.typeImg {
+  padding-left: 15px;
+  height: 30px;
+  width: auto;
+  text-shadow: 0 0 12px rgba(0,0,0,.25);
 }
 
 @media only screen and (max-width: 768px) {

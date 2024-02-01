@@ -25,6 +25,7 @@ const favoriteClassdrawer = new Drawer(favoriteDrawer);
 let evolveContainer = document.getElementById('evolveContainer');
 
 let typeColors = { Bug: '#90c12c', Dark: '#5a5366', Dragon: '#0a6dc4', Electric: '#f3d23b', Fairy: '#ec8fe6', Fighting: '#ce4069', Fire: '#ff9c54', Flying: '#8fa8dd', Ghost: '#5269ac', Grass: '#63bd5b', Ground: '#d97746', Ice: '#74cec0', Normal: '#9099a1', Poison: '#ab6ac8', Psychic: '#f97176', Rock: '#c7b78b', Steel: '#5a8ea1', Water: '#4d90d5' };
+console.log(typeColors.length);
 
 const GetPokemonData = async (pokemon = searchBarInput.value.toLowerCase()) => {
     searchBarInput.value = '';
@@ -325,7 +326,7 @@ function PopulateElementTypeIcons(types) {
         div.style.backgroundColor = typeColors[element];
 
         let img = document.createElement('img');
-        img.src = `./assets/types/${element}.png`;
+        img.src = `./assets/IMG_${element}.png`;
         img.classList.add('typeImg');
 
         let p = document.createElement('p');
