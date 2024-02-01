@@ -12,7 +12,7 @@ I used my knowledge of HTML, CSS, and JS to create my own functioning and respon
     <li>Show 1 location from any game [x]</li>
     <li>Display Element Types</li>
     <li>List all possible abilities and moves [x]</li>
-    <li>Show Evolutionary Paths</li>
+    <li>Show Evolutionary Paths [x]</li>
     <li>Display Favorites List[x]</li>
 </ul>
 <br>

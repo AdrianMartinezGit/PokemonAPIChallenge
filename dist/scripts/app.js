@@ -272,7 +272,8 @@ const PopulateEvolveData = () => {
     for (let i = 0; i < allEvolvePaths.length; i++) {
         let thisPath = allEvolvePaths[i];
         let outterDiv = document.createElement('div');
-        outterDiv.classList.add('flex', 'items-center', 'justify-center', 'evoBranch');
+        outterDiv.classList.add('flex', 'items-center', 'justify-center', 'evolveBranch');
+        outterDiv.style.cssText = `outline: 2px solid black; background-color: white; border-radius: 5px;`;
 
         for (let j = 0; j < thisPath.length; j++) {
             let thisMon = thisPath[j];
@@ -300,7 +301,11 @@ const PopulateEvolveData = () => {
                 await GetPokemonData(thisMon.id);
                 await PopulateData();
                 
-                window.location.href = `#topElement`;
+                window.scroll({
+                    top: 0,
+                    left: 0,
+                    behavior: "smooth",
+                  });
             });
 
             let p = document.createElement('p');
