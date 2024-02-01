@@ -584,16 +584,19 @@ body {
   opacity: 50%;
 }
 
-.favePokeBox:hover {
+.favePokeBox:hover, .evolveImg:hover {
   transform: scale(1.05);
   cursor: pointer;
   transition: 0.25s;
 }
 
-.favePokeBox {
+.favePokeBox, .evolveImg {
   transform: scale(1.00);
   cursor: none;
   transition: 0.25s;
+}
+
+.favePokeBox {
   width: 90%;
   height: 128px;
   border-radius: 10px;
@@ -618,6 +621,24 @@ body {
   margin-left: 0px;
 }
 
+.evolveCol {
+  width: 25%;
+}
+
+.evolveImg {
+  height: 70px;
+}
+
+.evolveBranch {
+  margin: 10px;
+}
+
+.ph-arrow-right-bold {
+  color: black;
+  font-size: 22px;
+  text-shadow: 0 0 12px rgba(0, 0, 0, .25);
+}
+
 @media only screen and (max-width: 768px) {
   .search-bar-width {
     width: 540px;
@@ -635,5 +656,13 @@ body {
 
   .favoriteButtonSubRemove {
     margin-left: 30px;
+  }
+
+  .evolveCol {
+    width: 20%;
+  }
+
+  .evolveImg {
+    height: 42px;
   }
 }

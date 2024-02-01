@@ -11,7 +11,7 @@
 </head>
 
 <body style="background-image: url('./assets/BKGD_Green.png'); background-color: rgb(209, 229, 217); background-repeat: no-repeat; background-size: cover;">
-  <div class="bg-gray-800">
+  <div class="bg-gray-800" id="topElement">
     <div class="flex justify-center">
     <form class="pt-5" style="width: 90%;" onSubmit="">
       <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -42,7 +42,7 @@
           id="randomPokeButton">Random</button>
         <button type="button" style="width:100px;" id="favoriteDrawerButton"
           class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-          type="button" data-drawer-target="drawer-backdrop" data-drawer-show="drawer-backdrop" data-drawer-backdrop="true"
+          type="button" data-drawer-backdrop="true"
           aria-controls="favoriteDrawer">Favorites</button>
         <input type="image" id="favoritePokeButton" src="./assets/IMG_AddButton.png" style="height: 40px; width: 40px;">
       </div>
@@ -70,19 +70,14 @@
     <div class="flex justify-center">
       <p id="pokemonMoves" class="text-center text-4xl font-semibold text-black pt-5" style="width: 90%;">Moves</p>
     </div>
-    
+
     <hr style="border: 3px solid black;" class="mt-5">
-    <h1 id="pokemonMoves" class="text-center text-5xl font-extrabold text-black pt-5">Evolutions:</h1>
+  </div>
+
+  <div style="background-color: rgb(209, 229, 217);">
+    <h1 id="pokemonMoves" class="text-center text-5xl font-extrabold text-white pt-5" style="text-shadow: 4px 4px 6px black;">Evolutions:</h1>
     
-    <div class="evolveContainer pt-5 pb-5">
-      <!--
-      <div class="flex justify-center gap-16">
-        <img src="./assets/IMG_Placeholder.png" style="width: 128px; height: 128px;">
-        <img src="./assets/IMG_Arrow.png" style="width: 65px; height: 16px;">
-        <img src="./assets/IMG_Placeholder.png" style="width: 128px; height: 128px;">
-        <img src="./assets/IMG_Placeholder.png" style="width: 128px; height: 128px;">
-      </div>
-      -->
+    <div id="evolveContainer" class="pt-5 pb-5">
     </div>
   </div>
 

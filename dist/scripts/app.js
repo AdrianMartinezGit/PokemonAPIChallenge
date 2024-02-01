@@ -267,20 +267,18 @@ const ParseEvolveData = () => {
 }
 
 const PopulateEvolveData = () => {
-    evoCont.innerHTML = '';
-    for (let i = 0; i < allEvoPaths.length; i++) {
-        // let pEvo = document.createElement('p');
-        // pEvo.textContent = allEvoPaths[i].map(data => data.name).join(' --> ');
-        // pEvo.classList.add('text-2xl', 'mt-2');
-        // evoCont.append(pEvo);
-        let thisPath = allEvoPaths[i];
+    evolveContainer.innerHTML = '';
+
+    for (let i = 0; i < allEvolvePaths.length; i++) {
+        let thisPath = allEvolvePaths[i];
         let outterDiv = document.createElement('div');
         outterDiv.classList.add('flex', 'items-center', 'justify-center', 'evoBranch');
+
         for (let j = 0; j < thisPath.length; j++) {
             let thisMon = thisPath[j];
 
             let innerDiv = document.createElement('div');
-            innerDiv.classList.add('evoCol');
+            innerDiv.classList.add('evolveCol');
             
             if (j > 0) {
                 let iCon = document.createElement('i');
@@ -290,16 +288,19 @@ const PopulateEvolveData = () => {
 
             let img = new Image();
             img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${thisMon.id}.gif`;
+
             img.onerror = function() {
                 img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${thisMon.id}.png`;
                 img.onerror = null;
             }
-            img.classList.add('evoImg', 'mx-auto');
+
+            img.classList.add('evolveImg', 'mx-auto');
+
             img.addEventListener('click', async function() {
                 await GetPokemonData(thisMon.id);
                 await PopulateData();
-                AdaptiveBackgrounds();
-                window.scrollTo({top: 0, behavior: 'instant'});
+                
+                window.location.href = `#topElement`;
             });
 
             let p = document.createElement('p');
@@ -309,7 +310,7 @@ const PopulateEvolveData = () => {
             innerDiv.append(img, p);
             outterDiv.append(innerDiv);
         }
-        evoCont.append(outterDiv);
+        evolveContainer.append(outterDiv);
     }
 }
 
