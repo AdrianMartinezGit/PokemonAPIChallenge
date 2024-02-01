@@ -205,22 +205,6 @@ const CreateElements = () => {
             div.remove();
             input.remove();
         });
-        
-        /*
-        let button = document.createElement('input');
-        button.type = 'image';
-        button.src  = `./assets/IMG_SubButton.png`;
-        button.classList.add('favoriteButtonSubRemove');
-        
-        button.style.cssText = `width: 32px; height: 32px;`;
-
-        button.addEventListener('click', ()=> {
-            removeFromLocalStorage(pokeId);
-            div.remove();
-        });
-
-        div.append(img, p, button);
-        */
 
         let img = document.createElement('img');
         img.classList.add('favePokeImg');
