@@ -67,6 +67,15 @@ const SetFavoriteIcon = () => {
         favoritePokeButton.src = `./assets/IMG_AddButton.png`;
     }
 }
+const SetFavoriteIconAlt = () => {
+    let favorites = getLocalStorage();
+
+    if (favorites.includes(pokeId)) {
+        favoritePokeButton.src = `./assets/IMG_SubButton.png`;
+    } else {
+        favoritePokeButton.src = `./assets/IMG_AddButton.png`;
+    }
+}
 
 const GetFlavorText = () => {
     let flavorArray = speciesData.flavor_text_entries;
@@ -163,7 +172,6 @@ randomPokeButton.addEventListener('click', async () => {
 
 favoritePokeButton.addEventListener('click', () => {
     let favorites = getLocalStorage();
-    //let favoriteData = getLocalFavoriteData();
 
     if (favorites.includes(pokeId)) {
         removeFromLocalStorage(pokeId);
@@ -185,7 +193,7 @@ const CreateElements = () => {
     favorites.map(pokeNumber => {
         let div = document.createElement('div');
         div.classList.add('favePokeBox', 'flex');
-        div.style.background = favoriteData[pokeNumber].color;
+        div.style.backgroundColor = favoriteData[pokeNumber].color;
         div.style.cssText = `outline: 1px solid black;`;
 
         div.addEventListener('click', async function() {
@@ -201,7 +209,15 @@ const CreateElements = () => {
 
         input.addEventListener('click', ()=> {
             removeFromLocalStorage(pokeId);
-            SetFavoriteIcon();
+
+            if (pokeNumber == pokeId) {
+                if (favorites.includes(pokeId)) {
+                    removeFromLocalStorage(pokeId);
+                }
+            
+                SetFavoriteIcon();
+            }
+            
             div.remove();
             input.remove();
         });
