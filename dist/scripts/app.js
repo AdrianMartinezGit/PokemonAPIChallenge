@@ -1,4 +1,4 @@
-//import { saveToLocalStorage, getlocalStorage, removeFromLocalStorage, getFavoriteData, saveFavoriteData } from "./localstorage.js";
+import { saveToLocalStorage, getLocalStorage, removeFromLocalStorage, getLocalFavoriteData, saveLocalFavoriteData } from `./localstorage.js`
 
 let pokeData, speciesData, pokeId, encounterData, evolveData, allEvolvePaths;
 let ShinyPokemon = false;

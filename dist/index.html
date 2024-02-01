@@ -10,10 +10,10 @@
   <title>Search that Pokémon!</title>
 </head>
 
-<body
-  style="background-image: url('./assets/BKGD_Green.png'); background-color: rgb(209, 229, 217); background-repeat: no-repeat; background-size: cover;">
-  <div id="firstDiv" class="bg-gray-800">
-    <form class="pt-5 mx-auto" style="width: 90%;" onSubmit="">
+<body style="background-image: url('./assets/BKGD_Green.png'); background-color: rgb(209, 229, 217); background-repeat: no-repeat; background-size: cover;">
+  <div class="bg-gray-800">
+    <div class="flex justify-center">
+    <form class="pt-5" style="width: 90%;" onSubmit="">
       <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
       <div class="relative">
         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -27,6 +27,7 @@
           class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Search by Name or Pokédex Number" required>
       </div>
+    </div>
     </form>
 
     <h1 class="text-center text-6xl font-semibold text-white pt-5" style="text-shadow: 4px 4px 6px black;" id="pokemonName">POKEMON NAME</h1>
@@ -35,20 +36,23 @@
   </div>
 
   <img src="./assets/IMG_Placeholder.png" class="pokeImgSize h-auto mx-auto pt-5 pb-5" id="pokemonImg">
-    <!--<div class="pt-5 grid grid-cols-3 gap-4 content-center">-->
       <div class="flex justify-center">
-        <button type="button" style="width:100px;" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" id="randomPokeButton">Random</button>
-        <button type="button" style="width:100px;" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="button" data-drawer-target="drawer-backdrop" data-drawer-show="drawer-backdrop" data-drawer-backdrop="true"
-        aria-controls="drawer-backdrop">Favorites</button>
-        <input type="image" id="favoritePokeButton" src="./assets/IMG_AddButton.png" style="height: 40px; width: auto;">
+        <button type="button" style="width:100px;"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          id="randomPokeButton">Random</button>
+        <button type="button" style="width:100px;"
+          class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+          type="button" data-drawer-target="drawer-backdrop" data-drawer-show="drawer-backdrop" data-drawer-backdrop="true"
+          aria-controls="drawer-backdrop">Favorites</button>
+        <input type="image" id="favoritePokeButton" src="./assets/IMG_AddButton.png" style="height: 40px; width: 40px;">
       </div>
-    <!--</div>-->
-  <!--<img src="./assets/IMG_Placeholder.png" class="w-96 h-auto mx-auto pt-5 pb-5" id="pokemonImg">-->
 
   <div class="bg-white">
     <hr style="border: 3px solid black;" class="mt-5">
     <h1 class="text-center text-5xl font-extrabold text-black pt-5">Flavor Text:</h1>
-    <p id="pokemonFlavorText" class="text-center text-4xl font-semibold text-black pt-5">FLAVOR TEXT</p>
+    <div class="flex justify-center">
+      <p id="pokemonFlavorText" class="text-center text-4xl font-semibold text-black pt-5" style="width: 90%;">FLAVOR TEXT</p>
+    </div>
     <hr style="border: 3px solid black;" class="mt-5">
   </div>
 
@@ -62,12 +66,21 @@
     <p id="pokemonAbility" class="text-center text-4xl font-semibold text-black pt-5">Abilities</p>
     <hr style="border: 3px solid black;" class="mt-5">
     <h1 class="text-center text-5xl font-extrabold text-black pt-5">Moves:</h1>
-    <p id="pokemonMoves" class="text-center text-4xl font-semibold text-black pt-5" style="position: relative; width: 75%; left: 12.5%;">Moves</p>
+    
+    <div class="flex justify-center">
+      <p id="pokemonMoves" class="text-center text-4xl font-semibold text-black pt-5" style="width: 90%;">Moves</p>
+    </div>
+    
     <hr style="border: 3px solid black;" class="mt-5">
     <h1 id="pokemonMoves" class="text-center text-5xl font-extrabold text-black pt-5">Evolutions:</h1>
     
-    <div class="evolveContainer">
-
+    <div class="evolveContainer pt-5 pb-5">
+      <div class="flex justify-center gap-16">
+        <img src="./assets/IMG_Placeholder.png" style="width: 128px; height: 128px;">
+        <img src="./assets/IMG_Arrow.png" style="width: 65px; height: 16px;">
+        <img src="./assets/IMG_Placeholder.png" style="width: 128px; height: 128px;">
+        <img src="./assets/IMG_Placeholder.png" style="width: 128px; height: 128px;">
+      </div>
     </div>
   </div>
 
@@ -88,26 +101,6 @@
     </button>
 
     <hr style="border: 1px solid grey;">
-    <!--
-    <div class="py-4 overflow-y-auto">
-      <ul class="space-y-2 font-medium">
-        <li>
-          <a href="#"
-            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-            <svg
-              class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-              aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-              <path
-                d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
-              <path
-                d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
-            </svg>
-            <span class="ms-3">Dashboard</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    -->
   </div>
 
   <script type="module" src="./scripts/app.js"></script>

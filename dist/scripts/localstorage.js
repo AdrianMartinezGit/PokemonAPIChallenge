@@ -1,56 +1,51 @@
-/*
-const saveToLocalStorage = (pokemon) => {
-    let favorites = getlocalStorage();
+function saveToLocalStorage(pokename) {
+    let favorites = getLocalStorage();
 
-    if (!favorites.includes(pokemon)) {
-        favorites.push(pokemon);
-    }
+    favorites.push(pokename);
 
     favorites.sort((a, b) => a - b);
 
     localStorage.setItem('Favorites', JSON.stringify(favorites));
 }
 
-const getlocalStorage = () => {
-    let localStorageData = localStorage.getItem("Favorites");
+function getLocalStorage() {
+    let localStorageData = localStorage.getItem('Favorites');
 
-    if (localStorageData == null) {
+    if (localStorageData === null) {
         return [];
     }
 
     return JSON.parse(localStorageData);
 }
 
-const getFavoriteData = () => {
-    let localData = localStorage.getItem('localData');
+function getLocalFavoriteData() {
+    let localFavoriteData = localStorage.getItem('FavoriteData');
 
-    if (localData === null) {
+    if (localFavoriteData === null) {
         localStorage.setItem('Favorites', '[]');
-        localStorage.setItem('localData', '{}');
+        localStorage.setItem('FavoriteData', '{}');
         return {};
     }
 
-    return JSON.parse(localData);
+    return JSON.parse(localFavoriteData);
 }
 
-const saveFavoriteData = (number, pokemon) => {
-    let localData = getFavoriteData();
+function saveLocalFavoriteData(number, pokename, color) {
+    let favoriteData = getLocalFavoriteData();
 
-    localData[number] = {name: pokemon, color: 'rgb(255, 255, 255)'};
+    favoriteData[number] = {name: pokename, color: color};
 
-    localStorage.setItem('localData', JSON.stringify(localData));
+    localStorage.setItem('favoriteData', JSON.stringify(favoriteData));
 }
 
-const removeFromLocalStorage = (pokemon) => 
-{
-    let favorites = getlocalStorage();
+function removeFromLocalStorage(pokename) {
+    let favorites = getLocalStorage();
 
-    let namedIndex = favorites.indexOf(pokemon);
+    let nameIndex = favorites.indexOf(pokename);
 
-    favorites.splice(namedIndex, 1);
+    favorites.splice(nameIndex, 1);
 
-    localStorage.setItem("Favorites", JSON.stringify(favorites));
+    localStorage.setItem('Favorites', JSON.stringify(favorites));
 }
 
-export { saveToLocalStorage, getlocalStorage, removeFromLocalStorage, getFavoriteData, saveFavoriteData };
-*/
+export { saveToLocalStorage, getLocalStorage, removeFromLocalStorage, getLocalFavoriteData, saveLocalFavoriteData };
