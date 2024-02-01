@@ -595,3 +595,7 @@ body {
 .pokeImgSize:hover {
   width: 26rem;
 }
+
+#favoritePokeButton:hover {
+  opacity: 50%;
+}

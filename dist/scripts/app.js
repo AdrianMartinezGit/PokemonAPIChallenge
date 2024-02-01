@@ -1,4 +1,4 @@
-import { saveToLocalStorage, getLocalStorage, removeFromLocalStorage, getLocalFavoriteData, saveLocalFavoriteData } from `./localstorage.js`
+import { saveToLocalStorage, getLocalStorage, removeFromLocalStorage, getLocalFavoriteData, saveLocalFavoriteData } from './localstorage.js';
 
 let pokeData, speciesData, pokeId, encounterData, evolveData, allEvolvePaths;
 let ShinyPokemon = false;
@@ -17,7 +17,6 @@ let pokemonAbility = document.getElementById('pokemonAbility');
 let pokemonMoves = document.getElementById('pokemonMoves');
 
 let firstDiv = document.getElementById('firstDiv');
-
 
 const GetPokemonData = async (pokemon = searchBarInput.value.toLowerCase()) => {
     searchBarInput.value = '';
@@ -51,15 +50,13 @@ const GetPokemonData = async (pokemon = searchBarInput.value.toLowerCase()) => {
 }
 
 const SetFavoriteIcon = () => {
-    /*
-    let favorites = getlocalStorage();
+    let favorites = getLocalStorage();
 
-    if (favorites.includes(pokeData)) {
-        favoritePokeButton.src = `./assets/IMG_SubButton.png`
+    if (favorites.includes(pokeId)) {
+        favoritePokeButton.src = `./assets/IMG_SubButton.png`;
     } else {
-        favoritePokeButton.src = `./assets/IMG_AddButton.png`
+        favoritePokeButton.src = `./assets/IMG_AddButton.png`;
     }
-    */
 }
 
 const GetFlavorText = () => {
@@ -107,7 +104,7 @@ const PopulateData = async () => {
 searchBarInput.addEventListener('keypress', async function(event) {
     if (event.key === 'Enter') {
         if (searchBarInput.value === '') {
-            console.log('Empty search')
+            console.log('Empty search');
             return;
         };
 
@@ -118,16 +115,13 @@ searchBarInput.addEventListener('keypress', async function(event) {
     }
 })
 
-const PageLoad = async () => {
+const onPageLoad = async () => {
     await GetPokemonData(1);
     await PopulateData();
+    SetFavoriteIcon();
 }
 
-PageLoad();
-
-const capitalizeFirstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
+onPageLoad();
 
 const capitalSplitCase = (string, splitOn = '-', joinWith = ' ') => {
     return string.split(splitOn).map(string => string[0].toUpperCase() + string.slice(1)).join(joinWith);
@@ -136,6 +130,10 @@ const capitalSplitCase = (string, splitOn = '-', joinWith = ' ') => {
 const pad = (num, size) => {
     let s = "000000000" + num;
     return s.substring(s.length - size);
+}
+
+const createElements = () => {
+
 }
 
 pokemonImg.addEventListener('click', () => {
@@ -151,7 +149,7 @@ pokemonImg.addEventListener('click', () => {
 
 randomPokeButton.addEventListener('click', async () => {
     if (pokemonImg.src !== `./assets/ANIM_Loading.gif`) {
-        let random = Math.floor(Math.random() * 1000) + 1 
+        let random = Math.floor(Math.floor(Math.random() * 1008) + 1);
     
         pokemonImg.src = `./assets/ANIM_Loading.gif`;
     
@@ -161,15 +159,15 @@ randomPokeButton.addEventListener('click', async () => {
 });
 
 favoritePokeButton.addEventListener('click', () => {
-    /*
-    let favorites = getlocalStorage();
-    let favoriteData = getFavoriteData();
+    let favorites = getLocalStorage();
+    let favoriteData = getLocalFavoriteData();
 
     if (favorites.includes(pokeId)) {
         removeFromLocalStorage(pokeId);
     } else {
         saveToLocalStorage(pokeId);
-        saveFavoriteData(pokeId, capitalSplitCase(pokeData.name));
+        saveLocalFavoriteData(pokeId, capitalSplitCase(pokeData.name), 'rgb(255, 255, 255)');
     }
-    */
+
+    SetFavoriteIcon();
 });

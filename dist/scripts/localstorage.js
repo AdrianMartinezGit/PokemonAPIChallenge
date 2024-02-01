@@ -1,4 +1,4 @@
-function saveToLocalStorage(pokename) {
+const saveToLocalStorage = (pokename) => {
     let favorites = getLocalStorage();
 
     favorites.push(pokename);
@@ -8,7 +8,7 @@ function saveToLocalStorage(pokename) {
     localStorage.setItem('Favorites', JSON.stringify(favorites));
 }
 
-function getLocalStorage() {
+const getLocalStorage = () => {
     let localStorageData = localStorage.getItem('Favorites');
 
     if (localStorageData === null) {
@@ -18,7 +18,7 @@ function getLocalStorage() {
     return JSON.parse(localStorageData);
 }
 
-function getLocalFavoriteData() {
+const getLocalFavoriteData = () => {
     let localFavoriteData = localStorage.getItem('FavoriteData');
 
     if (localFavoriteData === null) {
@@ -30,15 +30,15 @@ function getLocalFavoriteData() {
     return JSON.parse(localFavoriteData);
 }
 
-function saveLocalFavoriteData(number, pokename, color) {
+const saveLocalFavoriteData = (number, pokename, color) => {
     let favoriteData = getLocalFavoriteData();
 
     favoriteData[number] = {name: pokename, color: color};
 
-    localStorage.setItem('favoriteData', JSON.stringify(favoriteData));
+    localStorage.setItem('FavoriteData', JSON.stringify(favoriteData));
 }
 
-function removeFromLocalStorage(pokename) {
+const removeFromLocalStorage = (pokename) => {
     let favorites = getLocalStorage();
 
     let nameIndex = favorites.indexOf(pokename);
