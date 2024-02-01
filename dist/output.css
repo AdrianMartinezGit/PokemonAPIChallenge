@@ -585,7 +585,9 @@ body {
   opacity: 50%;
 }
 
-.favePokeBox:hover, .evolveImg:hover {
+/*.favePokeBox:hover,*/
+
+.evolveImg:hover {
   transform: scale(1.05);
   cursor: pointer;
   transition: 0.25s;
@@ -593,7 +595,7 @@ body {
 
 .favePokeBox, .evolveImg {
   transform: scale(1.00);
-  cursor: none;
+  /*cursor: none;*/
   transition: 0.25s;
 }
 
@@ -644,9 +646,23 @@ body {
   text-shadow: 0 0 12px rgba(0, 0, 0, .25);
 }
 
+.typeIconContainer {
+  width: 200px;
+  height: 45px;
+  background-color: #63bd5b;
+  border-radius: 15px;
+  margin-right: 10px;
+}
+
 @media only screen and (max-width: 768px) {
   .search-bar-width {
     width: 540px;
+  }
+
+  .typeIconCont {
+    margin-top: 2px;
+    width: 83px;
+    height: 25px;
   }
 }
 

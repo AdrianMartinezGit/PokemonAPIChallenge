@@ -11,12 +11,10 @@ let pokemonName = document.getElementById('pokemonName');
 let pokemonImg = document.getElementById('pokemonImg');
 let pokemonFlavorText = document.getElementById('pokemonFlavorText');
 
-let pokemonType = document.getElementById('pokemonType');
+let typeContainer = document.getElementById('typeContainer');
 let pokemonPlace = document.getElementById('pokemonPlace');
 let pokemonAbility = document.getElementById('pokemonAbility');
 let pokemonMoves = document.getElementById('pokemonMoves');
-
-let firstDiv = document.getElementById('firstDiv');
 
 let favoriteDrawer = document.getElementById('favoriteDrawer');
 let favoriteBox = document.getElementById('favoriteBox');
@@ -25,6 +23,8 @@ let drawerCloseButton = document.getElementById('drawerCloseButton');
 const favoriteClassdrawer = new Drawer(favoriteDrawer);
 
 let evolveContainer = document.getElementById('evolveContainer');
+
+let typeColors = { Bug: '#90c12c', Dark: '#5a5366', Dragon: '#0a6dc4', Electric: '#f3d23b', Fairy: '#ec8fe6', Fighting: '#ce4069', Fire: '#ff9c54', Flying: '#8fa8dd', Ghost: '#5269ac', Grass: '#63bd5b', Ground: '#d97746', Ice: '#74cec0', Normal: '#9099a1', Poison: '#ab6ac8', Psychic: '#f97176', Rock: '#c7b78b', Steel: '#5a8ea1', Water: '#4d90d5' };
 
 const GetPokemonData = async (pokemon = searchBarInput.value.toLowerCase()) => {
     searchBarInput.value = '';
@@ -97,11 +97,8 @@ const PopulateData = async () => {
     let moves = pokeData.moves.map(data => capitalSplitCase(data.move.name));
     pokemonMoves.textContent = moves.join(', ');
     
-    /*
-
-    let types = pokData.types.map(data => CapCase(data.type.name));
-    PopulateTypeIcons(types);
-    */
+    let types = pokeData.types.map(data => capitalSplitCase(data.type.name));
+    PopulateElementTypeIcons(types);
 
     SetFavoriteIcon();
     ParseEvolveData();
@@ -317,6 +314,27 @@ const PopulateEvolveData = () => {
         }
         evolveContainer.append(outterDiv);
     }
+}
+
+function PopulateElementTypeIcons(types) {
+    typeContainer.innerHTML = '';
+
+    types.forEach(element => {
+        let div = document.createElement('div');
+        div.classList.add('typeIconContainer', 'flex', 'items-center');
+        div.style.backgroundColor = typeColors[element];
+
+        let img = document.createElement('img');
+        img.src = `./assets/types/${element}.png`;
+        img.classList.add('typeImg');
+
+        let p = document.createElement('p');
+        p.classList.add('text-white', 'mx-auto', 'font-semibold', 'text-2xl', 'pr-4');
+        p.textContent = element;
+
+        div.append(img, p);
+        typeContainer.append(div);
+    });
 }
 
 favoriteDrawerButton.addEventListener('click', function() {
