@@ -42,6 +42,7 @@ const removeFromLocalStorage = (pokename) => {
     let favorites = getLocalStorage();
 
     let nameIndex = favorites.indexOf(pokename);
+    console.log(nameIndex);
 
     favorites.splice(nameIndex, 1);
 

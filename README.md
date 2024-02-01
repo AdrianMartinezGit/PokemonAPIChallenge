@@ -13,7 +13,7 @@ I used my knowledge of HTML, CSS, and JS to create my own functioning and respon
     <li>Display Element Types</li>
     <li>List all possible abilities and moves [x]</li>
     <li>Show Evolutionary Paths</li>
-    <li>Display Favorites List</li>
+    <li>Display Favorites List[x]</li>
 </ul>
 <br>
 Peer Reviewed by {Name Here}:<br>

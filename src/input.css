@@ -21,20 +21,6 @@ body {
     width: 1280px;
 }
 
-@media only screen and (max-width: 768px) {
-    .search-bar-width {
-        width: 540px;
-    }
-}
-@media only screen and (max-width: 480px) {
-    .search-bar-width {
-        width: 100%;
-    }
-    .sidebar-width {
-        width: 100%;
-    }
-}
-
 .bg-grey-half {
     background-color: rgb(48, 48, 48);
 }
@@ -53,4 +39,58 @@ body {
 
 #favoritePokeButton:hover {
     opacity: 50%;
+}
+
+.favePokeBox:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.favePokeBox {
+    transform: scale(1.00);
+    cursor: none;
+    transition: 0.25s;
+}
+
+.favePokeBox {
+    width: 90%;
+    height: 128px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 25px;
+}
+  
+.favePokeImg {
+  height: 90%;
+  margin-left: 15px;
+}
+
+.favePokeText {
+    justify-content: right;
+    text-align: right;
+    font-size: 28px;
+    margin-left: 40px;
+}
+
+.favoriteButtonSubRemove {
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+@media only screen and (max-width: 768px) {
+    .search-bar-width {
+        width: 540px;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .search-bar-width {
+        width: 100%;
+    }
+    .sidebar-width {
+        width: 100%;
+    }
+    .favoriteButtonSubRemove {
+        margin-left: 30px;
+    }
 }
