@@ -184,25 +184,9 @@ const CreateElements = () => {
     
     favorites.map(pokeNumber => {
         let div = document.createElement('div');
-        div.classList.add('favePokeBox', 'mx-auto', 'flex', 'items-start');
+        div.classList.add('favePokeBox', 'flex');
         div.style.background = favoriteData[pokeNumber].color;
         div.style.cssText = `outline: 1px solid black;`;
-
-        let p = document.createElement('p');
-        p.className = "favePokeText font-semibold";
-        p.innerText = favoriteData[pokeNumber].name + ' #' + pad(pokeNumber, 3)
-        //p.innerHTML = `<p class="favePokeText">${favoriteData[pokeNumber].name}<br>${'#' + pad(pokeNumber, 3)}</p>`
-
-        let img = document.createElement('img');
-        img.classList.add('favePokeImg');
-        img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeNumber}.png`;
-
-        let button = document.createElement('input');
-        button.type = 'image';
-        button.src  = `./assets/IMG_SubButton.png`;
-        button.className = 'favoriteButtonSubRemove';
-        
-        button.style.cssText = `width: 32px; height: 32px; `;
 
         div.addEventListener('click', async function() {
             await GetPokemonData(pokeNumber);
@@ -210,13 +194,47 @@ const CreateElements = () => {
             favoriteClassdrawer.hide();
         });
 
+        let input = document.createElement('input');
+        input.type = 'image';
+        input.src = `./assets/IMG_SubButton.png`;
+        input.style.cssText = `width: 32px; height: 32px; padding-top: 5px;`;
+
+        input.addEventListener('click', ()=> {
+            removeFromLocalStorage(pokeId);
+            SetFavoriteIcon();
+            div.remove();
+            input.remove();
+        });
+        
+        /*
+        let button = document.createElement('input');
+        button.type = 'image';
+        button.src  = `./assets/IMG_SubButton.png`;
+        button.classList.add('favoriteButtonSubRemove');
+        
+        button.style.cssText = `width: 32px; height: 32px;`;
+
         button.addEventListener('click', ()=> {
             removeFromLocalStorage(pokeId);
             div.remove();
         });
 
         div.append(img, p, button);
+        */
+
+        let img = document.createElement('img');
+        img.classList.add('favePokeImg');
+        img.style.cssText = 'padding-top: 12px;';
+        img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeNumber}.png`;
+
+        let p = document.createElement('p');
+        p.className = "favePokeText font-semibold text-right pr-5 pt-2";
+        p.innerHTML = `${favoriteData[pokeNumber].name}<br>#${pad(pokeNumber, 3)}`;
+        p.style.cssText = 'width: 100%; line-height: 30px; height: 50%;';
+
+        div.append(img, p);
         favoriteBox.appendChild(div);
+        favoriteBox.append(input);
     })
 }
 
@@ -330,7 +348,7 @@ function PopulateElementTypeIcons(types) {
         img.classList.add('typeImg');
 
         let p = document.createElement('p');
-        p.classList.add('text-white', 'mx-auto', 'font-semibold', 'text-2xl', 'pr-4');
+        p.classList.add('text-white', 'mx-auto', 'text-2xl', 'pr-4');
         p.textContent = element;
 
         div.append(img, p);

@@ -544,6 +544,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.font-custom {
+  font-family: 'Kanit', sans-serif;
+}
+
 html {
   height: 100%;
   margin: 0;
@@ -585,9 +589,7 @@ body {
   opacity: 50%;
 }
 
-/*.favePokeBox:hover,*/
-
-.evolveImg:hover {
+.favePokeBox:hover, .evolveImg:hover {
   transform: scale(1.05);
   cursor: pointer;
   transition: 0.25s;
@@ -595,7 +597,7 @@ body {
 
 .favePokeBox, .evolveImg {
   transform: scale(1.00);
-  /*cursor: none;*/
+  cursor: none;
   transition: 0.25s;
 }
 
@@ -661,6 +663,21 @@ body {
   text-shadow: 0 0 12px rgba(0,0,0,.25);
 }
 
+.move-text {
+  font-size: 36px;
+  line-height: 40px;
+}
+
+.abilities-text {
+  font-size: 36px;
+  line-height: 40px;
+}
+
+.flavor-text {
+  font-size: 36px;
+  line-height: 40px;
+}
+
 @media only screen and (max-width: 768px) {
   .search-bar-width {
     width: 540px;
@@ -670,6 +687,11 @@ body {
     margin-top: 2px;
     width: 83px;
     height: 25px;
+  }
+
+  .move-text {
+    font-size: 24px;
+    line-height: 30px;
   }
 }
 
@@ -692,5 +714,20 @@ body {
 
   .evolveImg {
     height: 42px;
+  }
+
+  .move-text {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .abilities-text {
+    font-size: 28px;
+    line-height: 40px;
+  }
+
+  .flavor-text {
+    font-size: 24px;
+    line-height: 30px;
   }
 }
