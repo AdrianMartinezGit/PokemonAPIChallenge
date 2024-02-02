@@ -208,13 +208,11 @@ const CreateElements = () => {
         input.style.cssText = `width: 32px; height: 32px; padding-top: 5px;`;
 
         input.addEventListener('click', ()=> {
-            removeFromLocalStorage(pokeId);
+            if (favorites.includes(pokeNumber)) {
+                removeFromLocalStorage(pokeNumber);
+            }
 
             if (pokeNumber == pokeId) {
-                if (favorites.includes(pokeId)) {
-                    removeFromLocalStorage(pokeId);
-                }
-            
                 SetFavoriteIcon();
             }
             
